@@ -149,7 +149,8 @@ keycloak:
 
   ## Additional pod labels
   ## ref: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-  podLabels: {}
+  podLabels: 
+    app: keycloak
 
   ## Extra Annotations to be added to pod
   podAnnotations: {}
@@ -227,10 +228,10 @@ keycloak:
     # nodePort: 30000
 
     httpPort: 80
-    httpNodePort: "30001"
+    httpNodePort: ""
 
     httpsPort: 8443
-    httpsNodePort: "30002"
+    httpsNodePort: ""
 
     # Optional: jGroups port for high availability clustering
     jgroupsPort: 7600
