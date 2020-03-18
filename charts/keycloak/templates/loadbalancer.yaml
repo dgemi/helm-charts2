@@ -3,7 +3,7 @@ apiVersion: v1
 metadata:
   name: awsclb
   annotations:
-    service.beta.kubernetes.io/aws-load-balancer-internal: true
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 spec:
   type: LoadBalancer
   selector:
