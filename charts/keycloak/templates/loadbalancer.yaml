@@ -1,0 +1,18 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: awsclb
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: true
+spec:
+  type: LoadBalancer
+  selector:
+    app: keycloak
+  ports:
+  - port: 80
+    protocol: TCP
+    name: http
+  - port: 8443
+    protocol:TCP
+    name: https
+  externalTrafficPolicy: Cluster

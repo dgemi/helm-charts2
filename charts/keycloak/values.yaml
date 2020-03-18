@@ -20,7 +20,7 @@ clusterDomain: cluster.local
 # nameOverride: keycloak
 
 keycloak:
-  replicas: 1
+  replicas: 2
 
   image:
     repository: jboss/keycloak
@@ -83,7 +83,7 @@ keycloak:
   extraArgs: ""
 
   ## Username for the initial Keycloak admin user
-  username: keycloak
+  username: cnapadmin
 
   ## Password for the initial Keycloak admin user. Applicable only if existingSecret is not set.
   ## If not set, a random 10 characters password will be used
@@ -221,16 +221,16 @@ keycloak:
 
     ## ServiceType
     ## ref: https://kubernetes.io/docs/user-guide/services/#publishing-services---service-types
-    type: ClusterIP
+    type: NodePort
 
     ## Optional static port assignment for service type NodePort.
     # nodePort: 30000
 
     httpPort: 80
-    httpNodePort: ""
+    httpNodePort: "30001"
 
     httpsPort: 8443
-    httpsNodePort: ""
+    httpsNodePort: "30002"
 
     # Optional: jGroups port for high availability clustering
     jgroupsPort: 7600
@@ -285,10 +285,10 @@ keycloak:
   ## Persistence configuration
   persistence:
     # If true, the Postgres chart is deployed
-    deployPostgres: false
+    deployPostgres: true
 
     # The database vendor. Can be either "postgres", "mysql", "mariadb", or "h2"
-    dbVendor: h2
+    dbVendor: postgres
 
     ## The following values only apply if "deployPostgres" is set to "false"
     dbName: keycloak
