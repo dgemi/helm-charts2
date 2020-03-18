@@ -10,11 +10,11 @@ spec:
     app: keycloak
   ports:
   - port: 80
-    targetPort: 30001
+    targetPort: 80
     protocol: TCP
     name: http
   - port: 443
-    targetPort: 30002
+    targetPort: 443
     protocol: TCP
     name: https
   externalTrafficPolicy: Cluster
