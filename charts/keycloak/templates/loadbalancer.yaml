@@ -13,6 +13,6 @@ spec:
     protocol: TCP
     name: http
   - port: 8443
-    protocol:TCP
+    protocol: TCP
     name: https
   externalTrafficPolicy: Cluster
