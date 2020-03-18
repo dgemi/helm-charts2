@@ -20,7 +20,7 @@ clusterDomain: cluster.local
 # nameOverride: keycloak
 
 keycloak:
-  replicas: 2
+  replicas: 1
 
   image:
     repository: jboss/keycloak
@@ -285,10 +285,10 @@ keycloak:
   ## Persistence configuration
   persistence:
     # If true, the Postgres chart is deployed
-    deployPostgres: true
+    deployPostgres: false
 
     # The database vendor. Can be either "postgres", "mysql", "mariadb", or "h2"
-    dbVendor: postgres
+    dbVendor: h2
 
     ## The following values only apply if "deployPostgres" is set to "false"
     dbName: keycloak
